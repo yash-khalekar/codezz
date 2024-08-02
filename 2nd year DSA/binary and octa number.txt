@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+        int a[100],i,n,t;
+        
+        printf("enter number");
+        scanf("%d",&n);
+        t=n;
+        i=0;
+        while(t>0)
+        {
+                a[i++]=t%2;
+                t=t/2;
+        }
+        printf("binary number: ");
+        for(i=i-1;i>=0;i--)
+        {
+                printf("%d",a[i]);
+        }
+        i=0;
+        t=n;
+        printf("\n");
+        while(t>0)
+        {
+                a[i++]=t%8;
+                t=t/8;
+        }
+        printf("octal no: ");
+        for(i=i-1;i>=0;i--)
+        {
+                printf("%d",a[i]);
+        }
+}

@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 15
+struct stack{
+   int top;
+   int a[MAX];
+
+};
+struct stack *s;
+void init()
+{
+      s = (struct stack *)malloc(sizeof(struct stack)); // Allocate memory for s
+
+   s->top = -1;
+
+}
+int isfull()
+{
+    if(s->top == MAX-1)
+        return 1;
+    else
+        return 0;
+}
+void push(char c)
+{
+   if(isfull())
+{
+      printf("stack is full................");
+}
+else
+{
+  s->top++;
+ s->a[s->top] = c;
+
+}
+}
+void dis()
+{
+int i;
+for(i=s->top;i>=0;i--)
+{
+    printf("%c",s->a[i]);
+}
+
+}
+int main()
+{
+   char s1[100];
+   int i;
+
+    printf("enter string");
+    gets(s1);
+    init();
+    for(i=0;s1[i]!='\0';i++)
+    {
+        push(s1[i]);
+    }
+    dis();
+
+}

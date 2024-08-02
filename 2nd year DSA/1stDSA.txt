@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 5
+
+struct stack{
+    int top;
+    int a[MAX];
+};
+struct stack *s;
+void init()
+{
+    s = (struct stack *)malloc(sizeof(struct stack)); // Allocate memory for s
+    s->top = -1;
+    
+}
+int isfull()
+{
+    if(s->top == MAX-1)
+    return 1;
+    else
+    return 0;
+}
+void push(int n)
+{
+    if(isfull())
+    {
+        printf("stack is full");
+    }
+    else
+    {
+    s->top++;
+    s->a[s->top] = n;
+    }
+}
+void pop()
+{
+   
+    s->top--;
+}
+void dis()
+{
+    int i;
+    for(i = s->top;i>=0;i--)
+    {
+        printf("%d ",s->a[i]);
+    }
+}
+int main()
+{
+    int i,ch;
+
+     init();
+     do 
+     {
+         printf("\nenter choice\n 1)push \n2)pop \n3)display");
+         scanf("%d",&ch);
+         switch(ch)
+         {
+         case 1: printf("enter number");
+                 scanf("%d",&i);
+                 push(i);
+                 break;
+         case 2:pop(); break;
+         case 3:dis(); break;
+         default: printf("Invalid choice !!!!!");
+         break;
+         }
+     }while(!ch<4);
+   
+   
+
+    
+    
+}

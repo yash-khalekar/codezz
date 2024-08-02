@@ -1,0 +1,86 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 15
+struct stack{
+   int top;
+   int a[MAX];
+
+};
+struct stack *s;
+void init()
+{
+      s = (struct stack *)malloc(sizeof(struct stack)); // Allocate memory for s
+
+   s->top = -1;
+
+}
+int isempty()
+{
+    if(s->top == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+int isfull()
+{
+    if(s->top == MAX-1)
+        return 1;
+    else
+        return 0;
+}
+void push(char c)
+{
+   if(isfull())
+{
+      printf("stack is full................");
+}
+else
+{
+  s->top++;
+ s->a[s->top] = c;
+
+}
+}
+char pop() {  // char is use to return a value of function
+char val;
+    if (isempty()) {
+       
+        return 0;
+    } else {
+        val=s->a[s->top];
+        s->top--;
+retrun val;
+    }
+}
+
+
+int main()
+{
+   char s1[100];
+   int i;
+
+    printf("enter string");
+    scanf("%s",s1);
+    init();
+    for(i=0;s1[i]!='\0';i++)
+    {
+        push(s1[i]);
+    }
+    for(i=0;s1[i]!='\0';i++)
+    {
+        if(s1[i]!=pop())
+        {
+            break;
+        }
+    }
+    if(isempty())
+    printf("string is palimdrome");
+    else
+    printf("stringg is not palimdrome");
+ 
+
+}
